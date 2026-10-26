@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4fdbc8" />
+      <stop offset="100%" stop-color="#0d9488" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181b22" />
+      <stop offset="100%" stop-color="#0c0e12" />
+    </linearGradient>
+  </defs>
+  <!-- Background Card -->
+  <rect width="64" height="64" rx="16" fill="url(#bgGrad)" stroke="#14b8a6" stroke-width="2" stroke-opacity="0.4" />
+  
+  <!-- Code Bracket Left -->
+  <path d="M17 24 L10 32 L17 40" fill="none" stroke="url(#grad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.65" />
+  
+  <!-- Monogram EG -->
+  <text x="32" y="39" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'JetBrains Mono', 'Fira Code', monospace" font-size="21" font-weight="800" fill="url(#grad)" text-anchor="middle" letter-spacing="-0.5">EG</text>
+  
+  <!-- Code Bracket Right -->
+  <path d="M47 24 L54 32 L47 40" fill="none" stroke="url(#grad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.65" />
+  
+  <!-- Live Status Dot -->
+  <circle cx="50" cy="14" r="3" fill="#4fdbc8" />
+</svg>

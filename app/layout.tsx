@@ -66,7 +66,11 @@ export const metadata: Metadata = {
       "Full-stack software engineering with clean architecture, resilient APIs, and responsive design.",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
   },
 };
 
