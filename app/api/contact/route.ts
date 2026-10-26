@@ -1,24 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
+export const runtime = "edge";
+
 // In-memory rate limiting map: IP -> timestamp array
 // Limits to a maximum of 5 submissions per 10 minutes per IP
 const rateLimitMap = new Map<string, number[]>();
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
 const MAX_REQUESTS_PER_WINDOW = 5;
 
-// Clean up expired rate-limit records every 15 minutes
-setInterval(() => {
-  const now = Date.now();
-  for (const [ip, timestamps] of rateLimitMap.entries()) {
-    const validTimestamps = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
-    if (validTimestamps.length === 0) {
-      rateLimitMap.delete(ip);
-    } else {
-      rateLimitMap.set(ip, validTimestamps);
+/**
+ * Lazy cleanup of expired rate-limit records (Edge Runtime safe)
+ */
+function cleanupRateLimits(now: number) {
+  if (rateLimitMap.size > 100) {
+    for (const [ip, timestamps] of rateLimitMap.entries()) {
+      const valid = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+      if (valid.length === 0) {
+        rateLimitMap.delete(ip);
+      } else {
+        rateLimitMap.set(ip, valid);
+      }
     }
   }
-}, 15 * 60 * 1000);
+}
 
 /**
  * Escapes HTML characters to prevent XSS / HTML injection in email templates
@@ -50,6 +55,7 @@ export async function POST(request: NextRequest) {
     const ip = forwardedFor ? forwardedFor.split(",")[0].trim() : "127.0.0.1";
 
     const now = Date.now();
+    cleanupRateLimits(now);
     const timestamps = rateLimitMap.get(ip) || [];
     const recentRequests = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
 
