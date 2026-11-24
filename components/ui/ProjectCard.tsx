@@ -245,6 +245,64 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               </div>
             </div>
           )}
+
+          {project.mockupType === "addisgebeya" && (
+            <div>
+              <div className="flex items-center justify-between pb-3 border-b border-outline-variant/30 text-outline">
+                <span>ADDISGEBEYA // COMMERCE ENGINE</span>
+                <span className="text-secondary font-bold flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary inline-block animate-pulse"></span>
+                  LIVE STORE
+                </span>
+              </div>
+
+              {/* Mock KPIs */}
+              <div className="grid grid-cols-2 gap-2 my-3">
+                <div className="p-2.5 rounded bg-surface-container border border-outline-variant/30">
+                  <div className="text-outline text-[10px]">ACTIVE ORDERS</div>
+                  <div className="text-on-surface text-headline-sm font-headline-sm mt-0.5">
+                    128 Orders
+                  </div>
+                  <div className="text-secondary text-[10px] mt-1">
+                    ↑ 99.4% Fulfillment
+                  </div>
+                </div>
+                <div className="p-2.5 rounded bg-surface-container border border-outline-variant/30">
+                  <div className="text-outline text-[10px]">CATALOG STATUS</div>
+                  <div className="text-on-surface text-headline-sm font-headline-sm mt-0.5">
+                    45 Models
+                  </div>
+                  <div className="text-primary text-[10px] mt-1">
+                    ● In Stock (Prisma / PG)
+                  </div>
+                </div>
+              </div>
+
+              {/* Mock Product Catalog Table Preview */}
+              <div className="rounded border border-outline-variant/30 overflow-hidden bg-surface-container/50">
+                <div className="grid grid-cols-3 p-2 bg-surface-container text-outline text-[10px] uppercase">
+                  <span>Product Model</span>
+                  <span>Category</span>
+                  <span className="text-right">Price</span>
+                </div>
+                <div className="grid grid-cols-3 p-2 border-t border-outline-variant/20 text-on-surface-variant">
+                  <span>Velocity Pro Nitro</span>
+                  <span className="text-outline">Running</span>
+                  <span className="text-right text-secondary font-semibold">$145.00</span>
+                </div>
+                <div className="grid grid-cols-3 p-2 border-t border-outline-variant/20 text-on-surface-variant">
+                  <span>Urban Luxe Runner</span>
+                  <span className="text-outline">Lifestyle</span>
+                  <span className="text-right text-secondary font-semibold">$160.00</span>
+                </div>
+                <div className="grid grid-cols-3 p-2 border-t border-outline-variant/20 text-on-surface-variant">
+                  <span>Apex Trail Strider</span>
+                  <span className="text-outline">Outdoor</span>
+                  <span className="text-right text-secondary font-semibold">$130.00</span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ export interface Project {
   highlights: string[];
   technologies: { name: string; highlighted?: boolean }[];
   githubUrl: string;
-  mockupType: "stacktrack" | "student-tracker" | "fixmycampus";
+  mockupType: "stacktrack" | "student-tracker" | "fixmycampus" | "addisgebeya";
   mockupData: Record<string, unknown>;
 }
 
@@ -119,6 +119,45 @@ export const PROJECTS: Project[] = [
         { time: "10:15 AM", text: "Ticket Logged & Triaged", completed: true },
         { time: "10:22 AM", text: "Field Technician Dispatched", completed: true },
         { time: "10:40 AM", text: "Hardware Replacement In Progress", completed: false },
+      ],
+    },
+  },
+  {
+    id: "addisgebeya",
+    slug: "addisgebeya-ecommerce-platform",
+    title: "AddisGebeya — Full-Stack E-Commerce Platform",
+    categoryTag: "COMMERCE PLATFORM",
+    categorySub: "MONOREPO ARCHITECTURE",
+    themeColor: "secondary",
+    description:
+      "A modern, full-stack e-commerce platform architected as a TypeScript monorepo with an App Router frontend and layered Express.js REST API backend, featuring domain-driven modular services, PostgreSQL persistence with Prisma ORM, and secure JWT authentication.",
+    highlights: [
+      "TypeScript monorepo architecture (pnpm workspaces)",
+      "Layered REST API (Controller-Service-Repository)",
+      "Secure JWT authentication & role-based access control (RBAC)",
+      "PostgreSQL persistence with Prisma ORM & migration workflows",
+    ],
+    technologies: [
+      { name: "Next.js" },
+      { name: "TypeScript", highlighted: true },
+      { name: "Express.js" },
+      { name: "Prisma", highlighted: true },
+      { name: "PostgreSQL" },
+      { name: "Tailwind CSS" },
+    ],
+    githubUrl: "https://github.com/Eyob73/AddisGebeya",
+    mockupType: "addisgebeya",
+    mockupData: {
+      header: "ADDISGEBEYA // COMMERCE ENGINE",
+      status: "LIVE STORE",
+      activeOrders: "128 Orders",
+      orderFulfillment: "↑ 99.4% Fulfillment",
+      catalogStatus: "45 Models",
+      stockNotice: "● In Stock (Prisma / PG)",
+      products: [
+        { name: "Velocity Pro Nitro", category: "Running", price: "$145.00" },
+        { name: "Urban Luxe Runner", category: "Lifestyle", price: "$160.00" },
+        { name: "Apex Trail Strider", category: "Outdoor", price: "$130.00" },
       ],
     },
   },
