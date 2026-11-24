@@ -327,7 +327,7 @@ export const HeroIllustration: React.FC = () => {
       </div>
 
       {/* ================= 4. THE CORE CODE EDITOR WINDOW ================= */}
-      <div className="w-full rounded-2xl border border-primary/30 dark:border-primary/20 bg-surface-container-lowest/90 dark:bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.45)] dark:shadow-[0_25px_60px_rgba(0,0,0,0.65)] overflow-hidden relative z-10 transition-all duration-300 hover:border-primary/50 group">
+      <div className="w-full rounded-2xl border border-primary/30 dark:border-primary/20 bg-surface-container-lowest/90 dark:bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_8px_20px_rgba(0,0,0,0.12)] dark:shadow-[0_10px_25px_rgba(0,0,0,0.25)] overflow-hidden relative z-10 transition-all duration-300 hover:border-primary/50 group">
         {/* Editor Chrome Top Bar */}
         <div className="px-3 sm:px-4 py-2.5 bg-surface-container/90 border-b border-outline-variant/30 flex items-center justify-between gap-2">
           {/* Traffic Light Window Controls */}

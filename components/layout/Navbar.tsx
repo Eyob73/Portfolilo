@@ -1,50 +1,21 @@
 "use client";
 
-import React, { useState, useEffect, useSyncExternalStore } from "react";
+import React, { useState, useEffect } from "react";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { Icon } from "@/components/ui/Icon";
-
-const subscribeTheme = (callback: () => void) => {
-  window.addEventListener("theme-change", callback);
-  window.addEventListener("storage", callback);
-  return () => {
-    window.removeEventListener("theme-change", callback);
-    window.removeEventListener("storage", callback);
-  };
-};
-
-const getThemeSnapshot = (): "dark" | "light" => {
-  if (typeof window === "undefined") return "dark";
-  try {
-    return (localStorage.getItem("eyob_theme") as "dark" | "light") || "dark";
-  } catch {
-    return "dark";
-  }
-};
-
-const getThemeServerSnapshot = (): "dark" | "light" => "dark";
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("projects");
-  const theme = useSyncExternalStore(
-    subscribeTheme,
-    getThemeSnapshot,
-    getThemeServerSnapshot
-  );
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
-    try {
-      localStorage.setItem("eyob_theme", nextTheme);
-      if (nextTheme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
-      window.dispatchEvent(new Event("theme-change"));
-    } catch {
-      // fallback
+    setTheme(nextTheme);
+    if (nextTheme === "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
     }
   };
 

@@ -25,9 +25,7 @@ export const HeroSection: React.FC = () => {
             {/* Hero Main Headline */}
             <h1 className="font-display text-display-mobile md:text-display text-on-surface tracking-tight leading-tight">
               Hi, I&apos;m Eyob. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary-fixed">
-                I Build Digital Experiences.
-              </span>
+              I Build Digital Experiences.
             </h1>
 
             {/* Concise Intro Subtitle */}

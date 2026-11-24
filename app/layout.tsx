@@ -89,12 +89,8 @@ export default function RootLayout({
         <Script id="theme-init" strategy="beforeInteractive">
           {`
             try {
-              var saved = localStorage.getItem('eyob_theme');
-              if (saved === 'light') {
-                document.documentElement.classList.remove('dark');
-              } else {
-                document.documentElement.classList.add('dark');
-              }
+              document.documentElement.classList.add('dark');
+              localStorage.removeItem('eyob_theme');
             } catch (e) {}
           `}
         </Script>

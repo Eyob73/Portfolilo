@@ -33,6 +33,8 @@ export interface CertificationItem {
   issuer: string;
   date: string;
   credentialType: string;
+  credentialUrl?: string;
+  certificateImage?: string;
   description: string;
   skills: string[];
   icon: string;
@@ -62,7 +64,7 @@ export const SITE_CONFIG = {
   metrics: [
     { label: "STACK", value: "Full-Stack" },
     { label: "EDUCATION", value: "BSc CS '26" },
-    { label: "FOCUS", value: "C# / React / .NET" },
+    { label: "FOCUS", value: "C# / Angular / .NET" },
     { label: "LOCATION", value: "Addis Ababa" },
   ] as MetricItem[],
   aboutHighlights: [
@@ -183,17 +185,19 @@ export const SITE_CONFIG = {
     degree: "Bachelor of Science in Computer Science",
     location: "Addis Ababa, Ethiopia",
     tag: "UNDERGRADUATE DEGREE",
-    graduation: "Expected Graduation: 2026",
+    graduation: "Graduated: 2026",
     focusHeading: "Academic Focus & Coursework",
     description:
       "Core computing principles, algorithms, data structures, relational database management systems (DBMS), software engineering methodologies, computer networks, and object-oriented systems design.",
   },
   certifications: [
     {
-      title: "Qiyas Full-Stack Development Training",
+      title: "Full-Stack Software Development (Web and Mobile)",
       issuer: "Addis Ababa University",
       date: "May 2026 – September 2026",
       credentialType: "Training Program",
+      credentialUrl: "/certificates/aau-qiyas-certificate.jpg",
+      certificateImage: "/certificates/aau-qiyas-certificate.jpg",
       description:
         "Intensive full-stack software development training covering modern web engineering, clean architecture, backend service design, and relational database modeling.",
       skills: ["Full-Stack Dev", "API Integration", "Database Design", "Agile Workflows"],
@@ -205,6 +209,7 @@ export const SITE_CONFIG = {
       issuer: "Udacity",
       date: "2024",
       credentialType: "Certificate",
+      credentialUrl: "https://www.udacity.com/certificate/e/a0b042ba-4cb0-11ef-952e-2359b7e8ba5c",
       description:
         "Comprehensive foundations in programming paradigms, and clean code best practices.",
       skills: ["Algorithms", "Data Structures", "Problem Solving", "Clean Code"],
@@ -216,6 +221,7 @@ export const SITE_CONFIG = {
       issuer: "Udacity",
       date: "2024",
       credentialType: "Certificate",
+      credentialUrl: "https://www.udacity.com/certificate/e/fcaaa734-54f0-11ef-b28d-d77d9809a630",
       description:
         "Foundational mobile engineering covering Android application architecture, layout design, lifecycle management, and reactive UI development.",
       skills: ["Android SDK", "Mobile Architecture", "UI Design", "App Lifecycle"],
