@@ -53,10 +53,6 @@ export const Navbar: React.FC = () => {
           <span className="font-label-mono text-body-lg font-bold text-on-surface tracking-tight group-hover:text-primary transition-colors">
             EG / dev
           </span>
-          <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container border border-outline-variant/50 text-[10px] font-label-mono text-primary">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-            <span>{SITE_CONFIG.version}</span>
-          </span>
         </a>
 
         {/* Desktop Navigation Links */}
@@ -71,11 +67,10 @@ export const Navbar: React.FC = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className={`font-label-mono text-label-mono transition-colors ${
-                  isActive
+                className={`font-label-mono text-label-mono transition-colors ${isActive
                     ? "text-primary font-medium"
                     : "text-on-surface-variant hover:text-on-surface"
-                }`}
+                  }`}
               >
                 {link.label}
               </a>
@@ -139,11 +134,10 @@ export const Navbar: React.FC = () => {
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`px-3 py-2 rounded-lg font-label-mono text-label-mono transition-colors flex items-center justify-between ${
-                    isActive
+                  className={`px-3 py-2 rounded-lg font-label-mono text-label-mono transition-colors flex items-center justify-between ${isActive
                       ? "bg-primary/10 text-primary font-medium"
                       : "text-on-surface-variant hover:bg-surface-container hover:text-on-surface"
-                  }`}
+                    }`}
                 >
                   <span>{link.label}</span>
                   {isActive && (
